@@ -56,6 +56,9 @@ int main() {
         cin >> weight[i] >> profit[i];
     }
 
+    cout << "Enter capacity: " ;
+    cin >> capacity;
+    
     for(int i = 0; i < n; i++)
         ratio[i] = profit[i] / weight[i];
 
