@@ -36,7 +36,7 @@ void knapsack(int n, float weight[], float profit[], float capacity)
         cout << arr[i] << endl;
     }
 
-    cout << "Total profit: " << totalProfit;
+    cout << "Total profit: " << totalProfit << endl;
 
 
 }
