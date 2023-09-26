@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
+#define INT_MAX 9999999
 
 
 struct Edge{
@@ -23,8 +24,10 @@ private:
     int distance[20];
     int previous[20];
     int getVertex_i(char c);
+    int iterations;
 
 public:
+	void showIterations();
     MinimumDistance();
     void input();
     void display();
@@ -124,6 +127,11 @@ void MinimumDistance::display_result(){
     cout << "\n------------------------------------\n";
 }
 
+void MinimumDistance::showIterations()
+{
+	
+}
+
 void MinimumDistance::bellmanFord(){
     if(!status)
     {
@@ -144,9 +152,9 @@ void MinimumDistance::bellmanFord(){
     int temp;
     int u, v;
 
-    for (i=1; i<graph->V; i++)
+    for (i=1; i < graph->V; i++)
     {
-        for (j=0; j<graph->E; j++)
+        for (j=0; j < graph->E; j++)
         {
             u = getVertex_i(graph->edge[j].u);
             v = getVertex_i(graph->edge[j].v);
@@ -157,8 +165,15 @@ void MinimumDistance::bellmanFord(){
                 distance[v] = temp;
                 previous[v] = u;
             }
+            
+       
+
         }
+        
+        //cout << distance[v] << endl;
     }
+    
+    //cout << distance[v] << " " << previous[v] << endl;
 
     cout<<"\nBellman Ford Applied Successfully."<<endl;
 
@@ -180,8 +195,9 @@ int main(){
         cout<<"1. Input"<<endl;
         cout<<"2. Display Graph"<<endl;
         cout<<"3. Apply Bellman Ford"<<endl;
-        cout<<"4. Result"<<endl;
-        cout<<"5. exit"<<endl<<endl;
+        cout<<"4. Show Iterations" << endl;
+        cout<<"5. Result"<<endl;
+        cout<<"6. exit"<<endl<<endl;
         cout<< "Enter the Choice : ";
         cin>>choice;
         switch(choice)
@@ -199,6 +215,9 @@ int main(){
                 M.display_result();
                 break;
             case 5:
+            	M.showIterations();
+                break;
+            case 6:
                 exit(0);
                 break;
             default:
