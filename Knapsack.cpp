@@ -6,6 +6,7 @@ struct bag
     double ratio;
     int price;
     int weight;
+    int f;
 };
 
 bool compare(bag a, bag b)
@@ -16,6 +17,7 @@ bool compare(bag a, bag b)
 class knapsack
 {
 private:
+
     int n, capacity, result;
     bag array[500];
     int val[500], wt[500];
@@ -100,8 +102,10 @@ void knapsack::greedy() {
             result += array[i].price;
             weight -= array[i].weight;
             continue;
+            array[i].f = 1;
         }
 
+        array[i].f += array[i].ratio * weight;
         result += array[i].ratio * weight;
         break;
     }
@@ -135,6 +139,12 @@ void knapsack::dynamic() {
 
 void knapsack::maxi() {
     cout << "\nMaximum value in knapsack: " << result << endl;
+
+    cout << "------------------------------------------\n";
+    cout << "\tValue" << "\tWeight" << "\tFraction" << endl;
+    for (int i = 0; i < n; i++)
+        cout << "\t" << val[i] << "\t" << wt[i] << "\t" << array[i].f <<  endl;
+    cout << "-------------------------------------------\n";
 }
 
 int main ()
