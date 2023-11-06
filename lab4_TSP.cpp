@@ -160,6 +160,6 @@ Enter cost matrix:
 -4
 0
 Optimal path: 0->1->2->3->0
-Minimum cost : 2147483647
+Minimum cost : 16
 
 */
