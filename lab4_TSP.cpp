@@ -58,7 +58,7 @@ void reduceMatrix(vector<vector<int>>& costMatrix)
     }
 }
 
-void TSP(vector<vector<int>>& costMatrix, int minCost, int level, int pathLength, vector<int>& path, vector<int>& minPath)
+void TSP(vector<vector<int>>& costMatrix, int & minCost, int level, int pathLength, vector<int>& path, vector<int>& minPath)
 {
     int n = costMatrix.size();
 
